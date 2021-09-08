@@ -1,0 +1,16 @@
+{
+    "entryFile": "src/index.ts",
+    "noImplicitAdditionalProperties": "throw-on-extras",
+    "spec": {
+        "outputDirectory": "public",
+        "specVersion": 3,
+        "securityDefinitions":{
+            "api_key": {
+                "type": "http",
+                 "name": "Authorization",
+                 "in":"header",
+                 "scheme": "Bearer"
+            }
+        }
+    }
+}

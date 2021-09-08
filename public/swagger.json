@@ -1,0 +1,1292 @@
+{
+	"components": {
+		"examples": {},
+		"headers": {},
+		"parameters": {},
+		"requestBodies": {},
+		"responses": {},
+		"schemas": {
+			"SaveUpdateResWaiter": {
+				"properties": {
+					"_id": {
+						"type": "string"
+					},
+					"waiter_name": {
+						"type": "string"
+					},
+					"waiter_email": {
+						"type": "string"
+					},
+					"waiter_password": {
+						"type": "string"
+					},
+					"createdAt": {
+						"type": "string"
+					},
+					"updatedAt": {
+						"type": "string"
+					}
+				},
+				"required": [
+					"_id",
+					"waiter_name",
+					"waiter_email",
+					"waiter_password",
+					"createdAt",
+					"updatedAt"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"GetWaiter": {
+				"properties": {
+					"waiter_email": {
+						"type": "string"
+					},
+					"waiter_password": {
+						"type": "string"
+					}
+				},
+				"required": [
+					"waiter_email",
+					"waiter_password"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"SaveUpdateResOrder": {
+				"properties": {
+					"customerName": {
+						"type": "string"
+					},
+					"tableNo": {
+						"type": "string"
+					},
+					"item": {
+						"items": {
+							"additionalProperties": false,
+							"type": "object"
+						},
+						"type": "array"
+					},
+					"waiter": {
+						"additionalProperties": false,
+						"type": "object"
+					},
+					"o_status": {
+						"type": "string"
+					},
+					"o_discription": {
+						"type": "string"
+					},
+					"createdAt": {
+						"type": "string"
+					},
+					"updatedAt": {
+						"type": "string"
+					}
+				},
+				"required": [
+					"customerName",
+					"tableNo",
+					"item",
+					"waiter",
+					"o_status",
+					"o_discription",
+					"createdAt",
+					"updatedAt"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"GetOrder": {
+				"properties": {
+					"id": {
+						"type": "string"
+					}
+				},
+				"required": [
+					"id"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"SaveReqOrder": {
+				"properties": {
+					"customerName": {
+						"type": "string"
+					},
+					"tableNo": {
+						"type": "string"
+					},
+					"item": {
+						"items": {
+							"additionalProperties": false,
+							"type": "object"
+						},
+						"type": "array"
+					},
+					"waiter": {
+						"additionalProperties": false,
+						"type": "object"
+					},
+					"o_discription": {
+						"type": "string"
+					}
+				},
+				"required": [
+					"customerName",
+					"tableNo",
+					"item",
+					"waiter",
+					"o_discription"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"UpdateReqOrder": {
+				"properties": {
+					"_id": {
+						"type": "string"
+					},
+					"customerName": {
+						"type": "string"
+					},
+					"tableNo": {
+						"type": "string"
+					},
+					"item": {
+						"items": {
+							"additionalProperties": false,
+							"type": "object"
+						},
+						"type": "array"
+					},
+					"waiter": {
+						"additionalProperties": false,
+						"type": "object"
+					},
+					"o_discription": {
+						"type": "string"
+					}
+				},
+				"required": [
+					"_id",
+					"customerName",
+					"tableNo",
+					"item",
+					"waiter",
+					"o_discription"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"_LeanDocument__LeanDocument_T__": {
+				"properties": {},
+				"type": "object"
+			},
+			"Pick__LeanDocument_T_.Exclude_keyof_LeanDocument_T_.Exclude_keyofDocument._id-or-id-or-__v_-or-%24isSingleNested__": {
+				"properties": {
+					"_id": {
+						"$ref": "#/components/schemas/_LeanDocument__LeanDocument_T__",
+						"description": "This documents _id."
+					},
+					"__v": {
+						"description": "This documents __v."
+					},
+					"id": {
+						"description": "The string version of this documents _id."
+					}
+				},
+				"type": "object",
+				"description": "From T, pick a set of properties whose keys are in the union K"
+			},
+			"Omit__LeanDocument_this_.Exclude_keyofDocument._id-or-id-or-__v_-or-%24isSingleNested_": {
+				"$ref": "#/components/schemas/Pick__LeanDocument_T_.Exclude_keyof_LeanDocument_T_.Exclude_keyofDocument._id-or-id-or-__v_-or-%24isSingleNested__",
+				"description": "Construct a type with the properties of T except for those in type K."
+			},
+			"LeanDocument_this_": {
+				"$ref": "#/components/schemas/Omit__LeanDocument_this_.Exclude_keyofDocument._id-or-id-or-__v_-or-%24isSingleNested_"
+			},
+			"IORDER": {
+				"$ref": "#/components/schemas/LeanDocument_this_"
+			},
+			"updateOrder_readyOrDelivered": {
+				"properties": {
+					"id": {
+						"type": "string"
+					}
+				},
+				"required": [
+					"id"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"SaveUpdateResItem": {
+				"properties": {
+					"_id": {
+						"type": "string"
+					},
+					"item_name": {
+						"type": "string"
+					},
+					"item_price": {
+						"type": "string"
+					},
+					"item_size": {
+						"type": "string"
+					},
+					"item_type": {
+						"type": "string"
+					},
+					"createdAt": {
+						"type": "string"
+					},
+					"updatedAt": {
+						"type": "string"
+					}
+				},
+				"required": [
+					"_id",
+					"item_name",
+					"item_price",
+					"item_size",
+					"item_type",
+					"createdAt",
+					"updatedAt"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"GetItem": {
+				"properties": {
+					"id": {
+						"type": "string"
+					}
+				},
+				"required": [
+					"id"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"getItemPrice": {
+				"properties": {
+					"item_price": {
+						"type": "string"
+					}
+				},
+				"required": [
+					"item_price"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"SaveUpdateResAdmin": {
+				"properties": {
+					"_id": {
+						"type": "string"
+					},
+					"admin_name": {
+						"type": "string"
+					},
+					"admin_email": {
+						"type": "string"
+					},
+					"admin_password": {
+						"type": "string"
+					},
+					"createdAt": {
+						"type": "string"
+					},
+					"updatedAt": {
+						"type": "string"
+					}
+				},
+				"required": [
+					"_id",
+					"admin_name",
+					"admin_email",
+					"admin_password",
+					"createdAt",
+					"updatedAt"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"SaveReqAdmin": {
+				"properties": {
+					"admin_name": {
+						"type": "string"
+					},
+					"admin_email": {
+						"type": "string"
+					},
+					"admin_password": {
+						"type": "string"
+					}
+				},
+				"required": [
+					"admin_name",
+					"admin_email",
+					"admin_password"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"GetAdmin": {
+				"properties": {
+					"admin_email": {
+						"type": "string"
+					},
+					"admin_password": {
+						"type": "string"
+					}
+				},
+				"required": [
+					"admin_email",
+					"admin_password"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"SaveReqWaiter": {
+				"properties": {
+					"waiter_name": {
+						"type": "string"
+					},
+					"waiter_email": {
+						"type": "string"
+					},
+					"waiter_password": {
+						"type": "string"
+					}
+				},
+				"required": [
+					"waiter_name",
+					"waiter_email",
+					"waiter_password"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"DeleteOrder": {
+				"properties": {
+					"id": {
+						"type": "string"
+					}
+				},
+				"required": [
+					"id"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"SearchReqOrder": {
+				"properties": {
+					"item": {
+						"items": {
+							"additionalProperties": false,
+							"type": "object"
+						},
+						"type": "array"
+					}
+				},
+				"required": [
+					"item"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"SearchReqQuantity": {
+				"properties": {
+					"o_quantity": {
+						"type": "string"
+					}
+				},
+				"required": [
+					"o_quantity"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"GetOrderByStatus": {
+				"properties": {
+					"o_status": {
+						"type": "string"
+					}
+				},
+				"required": [
+					"o_status"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"SaveReqItem": {
+				"properties": {
+					"item_name": {
+						"type": "string"
+					},
+					"item_price": {
+						"type": "string"
+					},
+					"item_size": {
+						"type": "string"
+					},
+					"item_type": {
+						"type": "string"
+					}
+				},
+				"required": [
+					"item_name",
+					"item_price",
+					"item_size",
+					"item_type"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"UpdateReqItem": {
+				"properties": {
+					"_id": {
+						"type": "string"
+					},
+					"item_name": {
+						"type": "string"
+					},
+					"item_price": {
+						"type": "string"
+					},
+					"item_size": {
+						"type": "string"
+					},
+					"item_type": {
+						"type": "string"
+					}
+				},
+				"required": [
+					"_id",
+					"item_name",
+					"item_price",
+					"item_size",
+					"item_type"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"IITEM": {
+				"$ref": "#/components/schemas/LeanDocument_this_"
+			},
+			"DeleteItem": {
+				"properties": {
+					"id": {
+						"type": "string"
+					}
+				},
+				"required": [
+					"id"
+				],
+				"type": "object",
+				"additionalProperties": false
+			}
+		},
+		"securitySchemes": {
+			"api_key": {
+				"type": "http",
+				"name": "Authorization",
+				"in": "header",
+				"scheme": "Bearer"
+			}
+		}
+	},
+	"info": {
+		"title": "hotel-management-system",
+		"version": "1.0.0",
+		"description": "This is a motel management system which is designed by me - Muhammad Ahsan",
+		"license": {
+			"name": "ISC"
+		},
+		"contact": {}
+	},
+	"openapi": "3.0.0",
+	"paths": {
+		"/waiter/loginwaiter": {
+			"post": {
+				"operationId": "Authwaiter",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/SaveUpdateResWaiter"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"PMS - Waiter"
+				],
+				"security": [],
+				"parameters": [],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/GetWaiter"
+							}
+						}
+					}
+				}
+			}
+		},
+		"/waiter/getorderById": {
+			"post": {
+				"operationId": "Getorder",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/SaveUpdateResOrder"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"PMS - Waiter"
+				],
+				"security": [
+					{
+						"api_key": []
+					}
+				],
+				"parameters": [],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/GetOrder"
+							}
+						}
+					}
+				}
+			}
+		},
+		"/waiter/saveorder": {
+			"post": {
+				"operationId": "Saveorder",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/SaveUpdateResOrder"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"PMS - Waiter"
+				],
+				"security": [
+					{
+						"api_key": []
+					}
+				],
+				"parameters": [],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/SaveReqOrder"
+							}
+						}
+					}
+				}
+			}
+		},
+		"/waiter/getMyOrderlist": {
+			"post": {
+				"operationId": "GetorderListByWaiterId",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"items": {
+										"$ref": "#/components/schemas/SaveUpdateResOrder"
+									},
+									"type": "array"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"PMS - Waiter"
+				],
+				"security": [
+					{
+						"api_key": []
+					}
+				],
+				"parameters": []
+			}
+		},
+		"/waiter/GetBillByOrderId": {
+			"post": {
+				"operationId": "GetorderforBill",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "number",
+									"format": "double"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"PMS - Waiter"
+				],
+				"security": [
+					{
+						"api_key": []
+					}
+				],
+				"parameters": [],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/GetOrder"
+							}
+						}
+					}
+				}
+			}
+		},
+		"/waiter/updateorder": {
+			"put": {
+				"operationId": "Updateorder",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/SaveUpdateResOrder"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"PMS - Waiter"
+				],
+				"security": [
+					{
+						"api_key": []
+					}
+				],
+				"parameters": [],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/UpdateReqOrder"
+							}
+						}
+					}
+				}
+			}
+		},
+		"/waiter/updateOrderToDelivered": {
+			"put": {
+				"operationId": "UpdateOrderToDelivered",
+				"responses": {
+					"200": {
+						"description": "product updated",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/IORDER"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"PMS - Waiter"
+				],
+				"security": [
+					{
+						"api_key": []
+					}
+				],
+				"parameters": [],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/updateOrder_readyOrDelivered"
+							}
+						}
+					}
+				}
+			}
+		},
+		"/waiter/getItemByID": {
+			"post": {
+				"operationId": "GetItem",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/SaveUpdateResItem"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"PMS - Waiter"
+				],
+				"security": [
+					{
+						"api_key": []
+					}
+				],
+				"parameters": [],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/GetItem"
+							}
+						}
+					}
+				}
+			}
+		},
+		"/waiter/getItemlist": {
+			"post": {
+				"operationId": "GetItemList",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"items": {
+										"$ref": "#/components/schemas/SaveUpdateResItem"
+									},
+									"type": "array"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"PMS - Waiter"
+				],
+				"security": [
+					{
+						"api_key": []
+					}
+				],
+				"parameters": []
+			}
+		},
+		"/waiter/getItemsbyPrice": {
+			"post": {
+				"operationId": "GetItemByPrice",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"items": {
+										"$ref": "#/components/schemas/SaveUpdateResItem"
+									},
+									"type": "array"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"PMS - Waiter"
+				],
+				"security": [
+					{
+						"api_key": []
+					}
+				],
+				"parameters": [],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/getItemPrice"
+							}
+						}
+					}
+				}
+			}
+		},
+		"/admin/RegisterAdmin": {
+			"post": {
+				"operationId": "SaveAdmin",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/SaveUpdateResAdmin"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"PMS - Admin"
+				],
+				"security": [],
+				"parameters": [],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/SaveReqAdmin"
+							}
+						}
+					}
+				}
+			}
+		},
+		"/admin/adminlogin": {
+			"post": {
+				"operationId": "AuthAdmin",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/SaveUpdateResAdmin"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"PMS - Admin"
+				],
+				"security": [],
+				"parameters": [],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/GetAdmin"
+							}
+						}
+					}
+				}
+			}
+		},
+		"/admin/Registerwaiter": {
+			"post": {
+				"operationId": "SaveWaiter",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/SaveUpdateResWaiter"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"PMS - Admin"
+				],
+				"security": [
+					{
+						"api_key": []
+					}
+				],
+				"parameters": [],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/SaveReqWaiter"
+							}
+						}
+					}
+				}
+			}
+		},
+		"/admin/deleteorder": {
+			"delete": {
+				"operationId": "Deletorder",
+				"responses": {
+					"200": {
+						"description": "product deleted",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/IORDER"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"PMS - Admin"
+				],
+				"security": [
+					{
+						"api_key": []
+					}
+				],
+				"parameters": [],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/DeleteOrder"
+							}
+						}
+					}
+				}
+			}
+		},
+		"/admin/updateOrderToReady": {
+			"put": {
+				"operationId": "UpdateOrderToReady",
+				"responses": {
+					"200": {
+						"description": "product updated",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/IORDER"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"PMS - Admin"
+				],
+				"security": [
+					{
+						"api_key": []
+					}
+				],
+				"parameters": [],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/updateOrder_readyOrDelivered"
+							}
+						}
+					}
+				}
+			}
+		},
+		"/admin/getorderlist": {
+			"post": {
+				"operationId": "GetorderList",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"items": {
+										"$ref": "#/components/schemas/SaveUpdateResOrder"
+									},
+									"type": "array"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"PMS - Admin"
+				],
+				"security": [
+					{
+						"api_key": []
+					}
+				],
+				"parameters": []
+			}
+		},
+		"/admin/getorderbyItemID": {
+			"post": {
+				"operationId": "SearchorderByproduct",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"items": {
+										"$ref": "#/components/schemas/SaveUpdateResOrder"
+									},
+									"type": "array"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"PMS - Admin"
+				],
+				"security": [
+					{
+						"api_key": []
+					}
+				],
+				"parameters": [],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/SearchReqOrder"
+							}
+						}
+					}
+				}
+			}
+		},
+		"/admin/getorderbyOrderQuantity": {
+			"post": {
+				"operationId": "SearchorderByquantity",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"items": {
+										"$ref": "#/components/schemas/SaveUpdateResOrder"
+									},
+									"type": "array"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"PMS - Admin"
+				],
+				"security": [
+					{
+						"api_key": []
+					}
+				],
+				"parameters": [],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/SearchReqQuantity"
+							}
+						}
+					}
+				}
+			}
+		},
+		"/admin/getOrderByStatus": {
+			"post": {
+				"operationId": "GetorderByStatus",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"items": {
+										"$ref": "#/components/schemas/SaveUpdateResOrder"
+									},
+									"type": "array"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"PMS - Admin"
+				],
+				"security": [
+					{
+						"api_key": []
+					}
+				],
+				"parameters": [],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/GetOrderByStatus"
+							}
+						}
+					}
+				}
+			}
+		},
+		"/admin/saveItem": {
+			"post": {
+				"operationId": "SaveItem",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/SaveUpdateResItem"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"PMS - Admin"
+				],
+				"security": [
+					{
+						"api_key": []
+					}
+				],
+				"parameters": [],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/SaveReqItem"
+							}
+						}
+					}
+				}
+			}
+		},
+		"/admin/updateItem": {
+			"put": {
+				"operationId": "UpdateItem",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/SaveUpdateResItem"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"PMS - Admin"
+				],
+				"security": [
+					{
+						"api_key": []
+					}
+				],
+				"parameters": [],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/UpdateReqItem"
+							}
+						}
+					}
+				}
+			}
+		},
+		"/admin/deleteItem": {
+			"delete": {
+				"operationId": "DeletItem",
+				"responses": {
+					"200": {
+						"description": "product deleted",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/IITEM"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"PMS - Admin"
+				],
+				"security": [
+					{
+						"api_key": []
+					}
+				],
+				"parameters": [],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/DeleteItem"
+							}
+						}
+					}
+				}
+			}
+		}
+	},
+	"servers": [
+		{
+			"url": "/"
+		}
+	]
+}
