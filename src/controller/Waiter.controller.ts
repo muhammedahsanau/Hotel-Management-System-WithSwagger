@@ -48,9 +48,12 @@ export class WaiterController {
     if (admin === null) throw new CustomeError(404, 'Order not found');
     return <SaveUpdateResOrder>admin;
   }
-// this is new change 
+ 
 
   //save order = > take order from the customer i.e from table.
+  /** 
+  @summary Take order from the customer => Only Login Waiter is allowed 
+  */
   @Security('api_key')
   @Post('/PlaceNewOrder')
   async saveorder(@Body() order: SaveReqOrder): Promise<SaveUpdateResOrder> {
@@ -58,12 +61,16 @@ export class WaiterController {
   const  new_admin = await new MainOrder().saveOrder(<IORDER>(order));
   console.log(typeof(new_admin));
   
-  
-   
-
     return <SaveUpdateResOrder>(new_admin);
   }
+
+
+
+
  //get all the orders taken by current login waiter
+  /** 
+  @summary Get All the orders taken by current waiter => Only Login Waiter is allowed 
+  */
   @Security('api_key') 
   @Post('/getMyOrderlist')
   async getorderListByWaiterId(): Promise<SaveUpdateResOrder[]> {
@@ -72,7 +79,13 @@ export class WaiterController {
     return <SaveUpdateResOrder[]>(admin);
   }
 
- 
+
+
+
+
+  /** 
+  @summary Enter order ID to get the bill => Only Login Waiter is allowed 
+  */
   @Security('api_key')
   @Post("/GetBillByOrderId")
   async getorderforBill(@Body() getreq:GetOrder): Promise<number> {
@@ -92,6 +105,13 @@ export class WaiterController {
     return bill;
   }
 
+
+
+
+
+  /** 
+  @summary Update Order by order Id => Only Login Waiter is allowed 
+  */
   @Security('api_key')
   @Put('/updateorder')
   async updateorder(@Body() admin: UpdateReqOrder): Promise<SaveUpdateResOrder> {
@@ -101,6 +121,10 @@ export class WaiterController {
     return <SaveUpdateResOrder>update_admin;
   }
 
+
+  /** 
+  @summary ordate order status to Delivered => Only Login Waiter is allowed 
+  */
   @Security('api_key') 
   @Put('/updateOrderToDelivered')
   @SuccessResponse("200","product updated")
@@ -108,6 +132,10 @@ export class WaiterController {
     return await new MainOrder().update_toDelivered(delreq.id);
   }
 
+
+  /** 
+  @summary Get Single Item By Item Id => Only Login Waiter is allowed 
+  */
   @Security('api_key')
   @Post("/getItemByID")
   async getItem(@Body() getreq:GetItem): Promise<SaveUpdateResItem> {
@@ -115,16 +143,29 @@ export class WaiterController {
     if (admin === null) throw new CustomeError(404, 'Admin not found');
     return <SaveUpdateResItem>admin;
   }
-  @Security('api_key')
+
+
+  /** 
+  @summary Get list of all the items => Only Login Waiter is allowed 
+  */
+
   @Post('/getItemlist')
   async getItemList(): Promise<SaveUpdateResItem[]> {
     const admin: IITEM[] = await new MainItem().getItemslist();
     return <SaveUpdateResItem[]>(admin);
   }
+
+
+
+  /** 
+  @summary Get list of all the items => anyone is allowed  
+  */
   @Security('api_key')
   @Post('/getItemsbyPrice')
   async getItemByPrice(@Body() admin: getItemPrice): Promise<SaveUpdateResItem[]> {
     const newadmin: IITEM[] = await new MainItem().getItemsByPrice(admin.item_price);
     return <SaveUpdateResItem[]>(newadmin);
   }
+
+
 }

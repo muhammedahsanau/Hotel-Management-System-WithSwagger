@@ -589,6 +589,7 @@
 						}
 					}
 				},
+				"summary": "Take order from the customer => Only Login Waiter is allowed",
 				"tags": [
 					"PMS - Waiter"
 				],
@@ -628,6 +629,7 @@
 						}
 					}
 				},
+				"summary": "Get All the orders taken by current waiter => Only Login Waiter is allowed",
 				"tags": [
 					"PMS - Waiter"
 				],
@@ -655,6 +657,7 @@
 						}
 					}
 				},
+				"summary": "Enter order ID to get the bill => Only Login Waiter is allowed",
 				"tags": [
 					"PMS - Waiter"
 				],
@@ -691,6 +694,7 @@
 						}
 					}
 				},
+				"summary": "Update Order by order Id => Only Login Waiter is allowed",
 				"tags": [
 					"PMS - Waiter"
 				],
@@ -727,6 +731,7 @@
 						}
 					}
 				},
+				"summary": "ordate order status to Delivered => Only Login Waiter is allowed",
 				"tags": [
 					"PMS - Waiter"
 				],
@@ -763,6 +768,7 @@
 						}
 					}
 				},
+				"summary": "Get Single Item By Item Id => Only Login Waiter is allowed",
 				"tags": [
 					"PMS - Waiter"
 				],
@@ -802,14 +808,11 @@
 						}
 					}
 				},
+				"summary": "Get list of all the items => Only Login Waiter is allowed",
 				"tags": [
 					"PMS - Waiter"
 				],
-				"security": [
-					{
-						"api_key": []
-					}
-				],
+				"security": [],
 				"parameters": []
 			}
 		},
@@ -831,6 +834,7 @@
 						}
 					}
 				},
+				"summary": "Get list of all the items => anyone is allowed",
 				"tags": [
 					"PMS - Waiter"
 				],

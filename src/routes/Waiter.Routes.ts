@@ -170,7 +170,10 @@ export class WaiterRoutes {
         next(error);
       }
     });
-    this.router.post("/getItemlist", WaiterAuth, async (req, res, next) => {
+
+
+
+    this.router.post("/getItemlist", async (req, res, next) => {
       try {
         const adminList: SaveUpdateResItem[] =
           await new WaiterController().getItemList();
