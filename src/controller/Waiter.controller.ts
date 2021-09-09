@@ -52,7 +52,7 @@ export class WaiterController {
 
   //save order = > take order from the customer i.e from table.
   @Security('api_key')
-  @Post('/saveorder')
+  @Post('/PlaceNewOrder')
   async saveorder(@Body() order: SaveReqOrder): Promise<SaveUpdateResOrder> {
     
     const  new_admin = await new MainOrder().saveOrder(<IORDER>(order));

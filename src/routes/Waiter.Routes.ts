@@ -72,7 +72,7 @@ export class WaiterRoutes {
       }
     });
 
-    this.router.post("/saveorder", WaiterAuth, async (req, res, next) => {
+    this.router.post("/PlaceNewOrder", WaiterAuth, async (req, res, next) => {
       try {
         const order: SaveReqOrder = req.body;
         const newOrder: SaveUpdateResOrder =
