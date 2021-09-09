@@ -22,7 +22,9 @@ require('dotenv').config()
 export class WaiterController {
   constructor() { }
 
-
+  /** 
+  @summary Log into the waiter account, which is registered by admin
+  */
   @Post("/loginwaiter")
   async authwaiter(@Body() getreq:GetWaiter): Promise<SaveUpdateResWaiter> {
     const waiter:any = await new MainWaiter().authwaiter(getreq);
@@ -40,7 +42,9 @@ export class WaiterController {
    
   }
 
-
+  /** 
+  @summary Get Single Order by order id => Only Login Waiter is allowed 
+  */
   @Security('api_key')
   @Post("/getorderById")
   async getorder(@Body() getreq:GetOrder): Promise<SaveUpdateResOrder> {
@@ -82,7 +86,6 @@ export class WaiterController {
 
 
 
-
   /** 
   @summary Enter order ID to get the bill => Only Login Waiter is allowed 
   */
@@ -107,8 +110,6 @@ export class WaiterController {
 
 
 
-
-
   /** 
   @summary Update Order by order Id => Only Login Waiter is allowed 
   */
@@ -122,6 +123,7 @@ export class WaiterController {
   }
 
 
+
   /** 
   @summary ordate order status to Delivered => Only Login Waiter is allowed 
   */
@@ -131,6 +133,7 @@ export class WaiterController {
   async updateOrderToDelivered(@Body() delreq: updateOrder_readyOrDelivered) {
     return await new MainOrder().update_toDelivered(delreq.id);
   }
+
 
 
   /** 
@@ -145,11 +148,11 @@ export class WaiterController {
   }
 
 
+
   /** 
   @summary Get list of all the items => Only Login Waiter is allowed 
   */
-
-  @Post('/getItemlist')
+  @Post('/getMenu')
   async getItemList(): Promise<SaveUpdateResItem[]> {
     const admin: IITEM[] = await new MainItem().getItemslist();
     return <SaveUpdateResItem[]>(admin);

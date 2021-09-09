@@ -173,7 +173,7 @@ export class WaiterRoutes {
 
 
 
-    this.router.post("/getItemlist", async (req, res, next) => {
+    this.router.post("/getMenu", async (req, res, next) => {
       try {
         const adminList: SaveUpdateResItem[] =
           await new WaiterController().getItemList();

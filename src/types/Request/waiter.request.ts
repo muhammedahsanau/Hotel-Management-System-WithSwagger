@@ -1,13 +1,13 @@
 export interface SaveReqWaiter {
-  waiter_name: String,
-  waiter_email:String, 
-  waiter_password: String,
+  waiter_name: string,
+  waiter_email:string, 
+  waiter_password: string,
   }
 
 
 export interface GetWaiter {
-    waiter_email:String, 
-    waiter_password:String, 
+    waiter_email:string, 
+    waiter_password:string, 
   }
   // export interface UpdateReqProduct {
   //   _id: string;

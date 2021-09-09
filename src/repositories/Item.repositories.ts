@@ -22,7 +22,7 @@ export class MainItem {
   getItemsOranges() {
     return ITEMSchema.find({item_name:"orange"});
    }
-   getItemsByPrice(price:String) {
+   getItemsByPrice(price:string) {
     return ITEMSchema.find({item_price:price});
    }
    getItemsGrapes() {

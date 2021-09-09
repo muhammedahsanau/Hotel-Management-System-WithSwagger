@@ -123,7 +123,7 @@ export class AdminRoutes {
         }
       }
     );
-    this.router.post("/saveItem", AdminAuth, async (req, res, next) => {
+    this.router.post("/saveItemInMenu", AdminAuth, async (req, res, next) => {
       try {
         const admin: SaveReqItem = req.body;
         const newAdmin: SaveUpdateResItem =
@@ -135,7 +135,7 @@ export class AdminRoutes {
         next(error);
       }
     });
-    this.router.put("/updateItem", AdminAuth, async (req, res, next) => {
+    this.router.put("/updateItemInMenu", AdminAuth, async (req, res, next) => {
       try {
         const admin: UpdateReqItem = req.body;
         const upadated_admin: SaveUpdateResItem =

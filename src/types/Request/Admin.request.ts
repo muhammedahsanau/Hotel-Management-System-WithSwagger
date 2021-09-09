@@ -1,13 +1,13 @@
 export interface SaveReqAdmin {
-  admin_name: String,
-  admin_email:String, 
-  admin_password: String,
+  admin_name: string,
+  admin_email:string, 
+  admin_password: string,
   }
 
 
   export interface GetAdmin {
-    admin_email:String, 
-    admin_password:String, 
+    admin_email:string, 
+    admin_password:string, 
   }
   // export interface UpdateReqProduct {
   //   _id: string;

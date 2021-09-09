@@ -1,21 +1,21 @@
 import { Schema, model } from 'mongoose';
 var mongoose = require("mongoose");
 export interface SaveReqOrder{
-     customerName:String,
-     tableNo:String,
+     customerName:string,
+     tableNo:string,
      item: object[],
     //  waiter:object,
     //  o_status:String,
-     o_discription: String,
+     o_discription: string,
     }
     export interface UpdateReqOrder {
       _id: string;
-      customerName:String,
-      tableNo:String,
+      customerName:string,
+      tableNo:string,
       item:object[] ,
       waiter:object,
       // o_status:String,
-      o_discription: String,
+      o_discription: string,
     }
     // export interface UpdateReqOrder {
     //   _id: string;
@@ -50,6 +50,6 @@ export interface SaveReqOrder{
     }
     export interface SearchReqQuantity {
       
-      o_quantity:String,
+      o_quantity:string,
   
     }

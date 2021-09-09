@@ -1,7 +1,7 @@
 {
   "name": "hotel-management-system",
   "version": "1.0.0",
-  "description": "This is a motel management system which is designed by me - Muhammad Ahsan",
+  "description": "Hotel Management System by - Muhammad Ahsan",
   "main": "index.js",
   "scripts": {
     "start": "node build/index.js",

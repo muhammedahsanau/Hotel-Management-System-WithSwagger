@@ -498,7 +498,7 @@
 	"info": {
 		"title": "hotel-management-system",
 		"version": "1.0.0",
-		"description": "This is a motel management system which is designed by me - Muhammad Ahsan",
+		"description": "Hotel Management System by - Muhammad Ahsan",
 		"license": {
 			"name": "ISC"
 		},
@@ -521,6 +521,7 @@
 						}
 					}
 				},
+				"summary": "Log into the waiter account, which is registered by admin",
 				"tags": [
 					"PMS - Waiter"
 				],
@@ -553,6 +554,7 @@
 						}
 					}
 				},
+				"summary": "Get Single Order by order id => Only Login Waiter is allowed",
 				"tags": [
 					"PMS - Waiter"
 				],
@@ -790,7 +792,7 @@
 				}
 			}
 		},
-		"/waiter/getItemlist": {
+		"/waiter/getMenu": {
 			"post": {
 				"operationId": "GetItemList",
 				"responses": {
@@ -1174,7 +1176,7 @@
 				}
 			}
 		},
-		"/admin/saveItem": {
+		"/admin/saveItemInMenu": {
 			"post": {
 				"operationId": "SaveItem",
 				"responses": {
@@ -1210,7 +1212,7 @@
 				}
 			}
 		},
-		"/admin/updateItem": {
+		"/admin/updateItemInMenu": {
 			"put": {
 				"operationId": "UpdateItem",
 				"responses": {

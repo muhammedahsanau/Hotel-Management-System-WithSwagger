@@ -69,7 +69,7 @@ export class MainOrder {
       "item_name item_price item_discription -_id"
     ).populate("waiter", "waiter_name waiter_email -_id");
   }
-  getOrdersbyOrderQuantity(qty: object) {
+  getOrdersbyOrderQuantity(qty: any) {
     return ORDERSchema.find({ o_quantity: qty }).populate(
       "item",
       "item_name item_price item_discription -_id"

@@ -1,12 +1,12 @@
 import { Schema, model } from 'mongoose';
 
 export interface SaveUpdateResOrder {
-  customerName:String,
-  tableNo:String,
+  customerName:string,
+  tableNo:string,
   item: object[],
   waiter:object,
-  o_status:String,
-  o_discription: String,
+  o_status:string,
+  o_discription: string,
   createdAt: string;
   updatedAt: string;
   }

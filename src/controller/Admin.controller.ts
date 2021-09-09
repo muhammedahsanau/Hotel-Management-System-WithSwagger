@@ -97,13 +97,13 @@ export class AdminController {
       return <SaveUpdateResOrder[]>admin;
     }
     @Security('api_key') 
-    @Post('/saveItem')
+    @Post('/saveItemInMenu')
     async saveItem(@Body() admin: SaveReqItem): Promise<SaveUpdateResItem> {
       const new_admin:IITEM = await new MainItem().saveItem(<IITEM>(admin));
       return <SaveUpdateResItem>(new_admin);
     }
     @Security('api_key') 
-    @Put('/updateItem')
+    @Put('/updateItemInMenu')
     async updateItem(@Body() admin: UpdateReqItem): Promise<SaveUpdateResItem> {
       const update_admin = await new MainItem().updateItem(<IITEM>(admin));
       if (update_admin === null)
