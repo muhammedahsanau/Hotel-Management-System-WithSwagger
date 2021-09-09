@@ -10,7 +10,7 @@ import { MainItem } from '../repositories/Item.repositories';
 import { Get, Route, Tags, Post, Body, Path, Put, Delete, SuccessResponse,Security } from "tsoa";
 import { SaveUpdateResWaiter } from '../types/Response/waiter.responce'; 
 import {  SaveReqWaiter,GetWaiter  } from '../types/Request/waiter.request';
-import { DeleteOrder, GetOrder, SaveReqOrder, UpdateReqOrder,updateOrder_readyOrDelivered,SearchReqQuantity } from '../types/Request/Order.request';
+import { DeleteOrder, GetOrder, SaveReqOrder, UpdateReqOrder,updateOrder_readyOrDelivered } from '../types/Request/Order.request';
 import { DeleteItem, GetItem, SaveReqItem, UpdateReqItem,search ,getItemPrice,getwaiterID } from '../types/Request/Item.request';
 import { SaveUpdateResOrder } from '../types/Response/Order.responce'; 
 import { SaveUpdateResItem } from '../types/Response/Item.responce'; 
@@ -150,7 +150,7 @@ export class WaiterController {
 
 
   /** 
-  @summary Get list of all the items => Only Login Waiter is allowed 
+  @summary Get list of all the items => anyone is allowed 
   */
   @Post('/getMenu')
   async getItemList(): Promise<SaveUpdateResItem[]> {
@@ -161,7 +161,7 @@ export class WaiterController {
 
 
   /** 
-  @summary Get list of all the items => anyone is allowed  
+  @summary Get list of all the items with spacific price=> anyone is allowed  
   */
   @Security('api_key')
   @Post('/getItemsbyPrice')

@@ -7,7 +7,7 @@ import {
   SaveReqOrder,
   UpdateReqOrder,
   SearchReqOrder,
-  SearchReqQuantity,
+  
   updateOrder_readyOrDelivered
 } from "../types/Request/order.request";
 import { IITEM } from "../types/document/IITEM";
@@ -223,7 +223,10 @@ export class WaiterRoutes {
       }
     });
 
-    this.router.post("/getItemsbyPrice", WaiterAuth, async (req, res, next) => {
+
+
+
+    this.router.post("/getItemsbyPrice", async (req, res, next) => {
       try {
         const item: getItemPrice = req.body;
         const adminList: SaveUpdateResItem[] =

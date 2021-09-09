@@ -8,7 +8,7 @@ import {
   SaveReqOrder,
   UpdateReqOrder,
   SearchReqOrder,
-  SearchReqQuantity,
+ 
 } from "../types/Request/order.request";
 import { OrderController } from "../controller/Order.controller";
 import { SaveReqAdmin, GetAdmin } from "../types/Request/Admin.request";
@@ -107,22 +107,7 @@ export class AdminRoutes {
         next(error);
       }
     });
-    this.router.post(
-      "/getorderbyOrderQuantity",
-      AdminAuth,
-      async (req, res, next) => {
-        try {
-          const order: SearchReqQuantity = req.body;
-          const adminList: SaveUpdateResOrder[] =
-            await new AdminController().searchorderByquantity(order);
-          res.status(200).json({
-            result: adminList,
-          });
-        } catch (error) {
-          next(error);
-        }
-      }
-    );
+ 
     this.router.post("/saveItemInMenu", AdminAuth, async (req, res, next) => {
       try {
         const admin: SaveReqItem = req.body;

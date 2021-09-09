@@ -1,5 +1,4 @@
-import { Schema, model } from 'mongoose';
-var mongoose = require("mongoose");
+
 export interface SaveReqOrder{
      customerName:string,
      tableNo:string,
@@ -48,8 +47,4 @@ export interface SaveReqOrder{
       item:object[],
   
     }
-    export interface SearchReqQuantity {
-      
-      o_quantity:string,
-  
-    }
+   

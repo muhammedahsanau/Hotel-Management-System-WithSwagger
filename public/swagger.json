@@ -394,18 +394,6 @@
 				"type": "object",
 				"additionalProperties": false
 			},
-			"SearchReqQuantity": {
-				"properties": {
-					"o_quantity": {
-						"type": "string"
-					}
-				},
-				"required": [
-					"o_quantity"
-				],
-				"type": "object",
-				"additionalProperties": false
-			},
 			"GetOrderByStatus": {
 				"properties": {
 					"o_status": {
@@ -469,9 +457,6 @@
 				],
 				"type": "object",
 				"additionalProperties": false
-			},
-			"IITEM": {
-				"$ref": "#/components/schemas/LeanDocument_this_"
 			},
 			"DeleteItem": {
 				"properties": {
@@ -810,7 +795,7 @@
 						}
 					}
 				},
-				"summary": "Get list of all the items => Only Login Waiter is allowed",
+				"summary": "Get list of all the items => anyone is allowed",
 				"tags": [
 					"PMS - Waiter"
 				],
@@ -836,7 +821,7 @@
 						}
 					}
 				},
-				"summary": "Get list of all the items => anyone is allowed",
+				"summary": "Get list of all the items with spacific price=> anyone is allowed",
 				"tags": [
 					"PMS - Waiter"
 				],
@@ -873,6 +858,7 @@
 						}
 					}
 				},
+				"summary": "Register as an Admin",
 				"tags": [
 					"PMS - Admin"
 				],
@@ -905,6 +891,7 @@
 						}
 					}
 				},
+				"summary": "Login as an Admin",
 				"tags": [
 					"PMS - Admin"
 				],
@@ -937,6 +924,7 @@
 						}
 					}
 				},
+				"summary": "Register new waiter => Only Login admin is allowed",
 				"tags": [
 					"PMS - Admin"
 				],
@@ -966,13 +954,12 @@
 						"description": "product deleted",
 						"content": {
 							"application/json": {
-								"schema": {
-									"$ref": "#/components/schemas/IORDER"
-								}
+								"schema": {}
 							}
 						}
 					}
 				},
+				"summary": "Delete order by its ID => Only Login admin is allowed",
 				"tags": [
 					"PMS - Admin"
 				],
@@ -1002,13 +989,12 @@
 						"description": "product updated",
 						"content": {
 							"application/json": {
-								"schema": {
-									"$ref": "#/components/schemas/IORDER"
-								}
+								"schema": {}
 							}
 						}
 					}
 				},
+				"summary": "Update order to ready => Only Login admin is allowed",
 				"tags": [
 					"PMS - Admin"
 				],
@@ -1048,6 +1034,7 @@
 						}
 					}
 				},
+				"summary": "Get list of all the orders => Only Login admin is allowed",
 				"tags": [
 					"PMS - Admin"
 				],
@@ -1077,6 +1064,7 @@
 						}
 					}
 				},
+				"summary": "Get all the orders contain certain item => Only Login admin is allowed",
 				"tags": [
 					"PMS - Admin"
 				],
@@ -1092,45 +1080,6 @@
 						"application/json": {
 							"schema": {
 								"$ref": "#/components/schemas/SearchReqOrder"
-							}
-						}
-					}
-				}
-			}
-		},
-		"/admin/getorderbyOrderQuantity": {
-			"post": {
-				"operationId": "SearchorderByquantity",
-				"responses": {
-					"200": {
-						"description": "Ok",
-						"content": {
-							"application/json": {
-								"schema": {
-									"items": {
-										"$ref": "#/components/schemas/SaveUpdateResOrder"
-									},
-									"type": "array"
-								}
-							}
-						}
-					}
-				},
-				"tags": [
-					"PMS - Admin"
-				],
-				"security": [
-					{
-						"api_key": []
-					}
-				],
-				"parameters": [],
-				"requestBody": {
-					"required": true,
-					"content": {
-						"application/json": {
-							"schema": {
-								"$ref": "#/components/schemas/SearchReqQuantity"
 							}
 						}
 					}
@@ -1155,6 +1104,7 @@
 						}
 					}
 				},
+				"summary": "Get Single Item By Item Id => Only Login Waiter is allowed",
 				"tags": [
 					"PMS - Admin"
 				],
@@ -1191,6 +1141,7 @@
 						}
 					}
 				},
+				"summary": "Get Single Item By Item Id => Only Login Waiter is allowed",
 				"tags": [
 					"PMS - Admin"
 				],
@@ -1227,6 +1178,7 @@
 						}
 					}
 				},
+				"summary": "Get Single Item By Item Id => Only Login Waiter is allowed",
 				"tags": [
 					"PMS - Admin"
 				],
@@ -1256,13 +1208,12 @@
 						"description": "product deleted",
 						"content": {
 							"application/json": {
-								"schema": {
-									"$ref": "#/components/schemas/IITEM"
-								}
+								"schema": {}
 							}
 						}
 					}
 				},
+				"summary": "Get Single Item By Item Id => Only Login Waiter is allowed",
 				"tags": [
 					"PMS - Admin"
 				],
