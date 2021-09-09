@@ -3,7 +3,7 @@ import { MainOrder } from '../repositories/Order.repositories';
 import CustomeError from '../utills/error';
 import { Get, Route, Tags, Post, Body, Path, Put, Delete, SuccessResponse,Security } from "tsoa";
 import { SaveUpdateResOrder } from '../types/Response/Order.responce'; 
-import { DeleteOrder, GetOrder, SaveReqOrder, UpdateReqOrder,SearchReqOrder,SearchReqQuantity } from '../types/Request/Order.request';
+import { DeleteOrder, GetOrder, SaveReqOrder, UpdateReqOrder,SearchReqOrder } from '../types/Request/Order.request';
 
 @Route('orders')
 @Tags('PMS - Orders')

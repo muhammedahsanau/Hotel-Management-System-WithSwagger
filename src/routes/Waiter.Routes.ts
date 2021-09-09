@@ -40,6 +40,8 @@ export class WaiterRoutes {
     this.routes();
   }
   routes() {
+
+     
     this.router.post("/loginwaiter", async (req, res, next) => {
       try {
         const getreq: GetWaiter = req.body;
@@ -53,7 +55,7 @@ export class WaiterRoutes {
         );
         res.header("token", accessToken);
 
-        console.log(waiter.waiter_password);
+        // console.log(waiter.waiter_password);
 
         res.send(waiter);
       } catch (error) {
@@ -87,7 +89,7 @@ export class WaiterRoutes {
         
                 const waiter = decoded;
                 // console.log(waiter.waiter_email);
-                console.log(waiter.waiter_id);
+                // console.log(waiter.waiter_id);
                 order.waiter=waiter.waiter_id
         const newOrder: SaveUpdateResOrder =
           await new WaiterController().saveorder(order);
@@ -109,7 +111,7 @@ export class WaiterRoutes {
           const Order: number = await new WaiterController().getorderforBill(
             getreq
           );
-          console.log(Order);
+          // console.log(Order);
 
           res.json({
             Bill: Order,
@@ -200,13 +202,13 @@ export class WaiterRoutes {
 
         const waiter = decoded;
         // console.log(waiter.waiter_email);
-        console.log(waiter.waiter_id);
+        // console.log(waiter.waiter_id);
 
         const orderList: SaveUpdateResOrder[] =
           await new WaiterController().getorderListByWaiterId();
         const new_order_list: SaveUpdateResOrder[] = [];
 
-        console.log(waiter.waiter_id == orderList[6].waiter);
+        // console.log(waiter.waiter_id == orderList[6].waiter);
         // console.log( orderList);
 
         for (let index = 0; index < orderList.length; index++) {

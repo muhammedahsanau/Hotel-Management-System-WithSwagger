@@ -27,7 +27,7 @@ export interface SaveReqItem{
     }
   export interface getwaiterID{
  
-    waiter:object
+    waiter:string
       
     }
  

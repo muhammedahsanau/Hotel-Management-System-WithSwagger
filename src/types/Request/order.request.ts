@@ -2,7 +2,7 @@
 export interface SaveReqOrder{
      customerName:string,
      tableNo:string,
-     item: object[],
+     item: string[],
     //  waiter:object,
     //  o_status:String,
      o_discription: string,
@@ -11,8 +11,8 @@ export interface SaveReqOrder{
       _id: string;
       customerName:string,
       tableNo:string,
-      item:object[] ,
-      waiter:object,
+      item:string[] ,
+      waiter:string,
       // o_status:String,
       o_discription: string,
     }
@@ -44,7 +44,7 @@ export interface SaveReqOrder{
     }
     export interface SearchReqOrder {
       
-      item:object[],
+      item:string[],
   
     }
    

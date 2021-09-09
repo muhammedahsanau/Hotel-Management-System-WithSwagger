@@ -64,14 +64,12 @@
 					},
 					"item": {
 						"items": {
-							"additionalProperties": false,
-							"type": "object"
+							"type": "string"
 						},
 						"type": "array"
 					},
 					"waiter": {
-						"additionalProperties": false,
-						"type": "object"
+						"type": "string"
 					},
 					"o_status": {
 						"type": "string"
@@ -121,8 +119,7 @@
 					},
 					"item": {
 						"items": {
-							"additionalProperties": false,
-							"type": "object"
+							"type": "string"
 						},
 						"type": "array"
 					},
@@ -152,14 +149,12 @@
 					},
 					"item": {
 						"items": {
-							"additionalProperties": false,
-							"type": "object"
+							"type": "string"
 						},
 						"type": "array"
 					},
 					"waiter": {
-						"additionalProperties": false,
-						"type": "object"
+						"type": "string"
 					},
 					"o_discription": {
 						"type": "string"
@@ -382,8 +377,7 @@
 				"properties": {
 					"item": {
 						"items": {
-							"additionalProperties": false,
-							"type": "object"
+							"type": "string"
 						},
 						"type": "array"
 					}

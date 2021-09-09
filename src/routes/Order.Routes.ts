@@ -1,7 +1,7 @@
 import express from 'express';
 
 import { IORDER } from '../types/document/IORDER';
-import { DeleteOrder, GetOrder, SaveReqOrder, UpdateReqOrder,SearchReqOrder,SearchReqQuantity } from '../types/Request/order.request';
+import { DeleteOrder, GetOrder, SaveReqOrder, UpdateReqOrder,SearchReqOrder } from '../types/Request/order.request';
 import { OrderController } from '../controller/Order.controller';
 import { SaveUpdateResOrder } from '../types/Response/order.responce';
 import CustomeError from '../utills/error';

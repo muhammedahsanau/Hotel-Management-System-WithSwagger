@@ -13,9 +13,10 @@ import { MongoCluster,MongoDbName,Mongo_Pass,Mongo_user_name,mongo_con_string } 
 let server: Server | null = null;
 const PORT = process.env.PORT || 5000;
 function initApplication(): express.Application {
+
+    // add your own mongo_con_string
      new DbMongo().connect(mongo_con_string);
-    // mongoose.connect("mongodb+srv://auth_user:ymJ0N0MyGagXazfJ@auth.cjj03.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
-    // .then(()=> console.log('Connected'))
+ 
     const app = express();
     app.use(express.json());
     app.use(morgan("tiny"));

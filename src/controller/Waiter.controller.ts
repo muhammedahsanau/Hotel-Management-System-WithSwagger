@@ -63,7 +63,7 @@ export class WaiterController {
   async saveorder(@Body() order: SaveReqOrder): Promise<SaveUpdateResOrder> {
     
   const  new_admin = await new MainOrder().saveOrder(<IORDER>(order));
-  console.log(typeof(new_admin));
+  // console.log(typeof(new_admin));
   
     return <SaveUpdateResOrder>(new_admin);
   }
@@ -102,7 +102,7 @@ export class WaiterController {
        bill = bill + itemIpriceint
        
      }
-     console.log("bill::"+ bill);
+    //  console.log("bill::"+ bill);
     if (Order === null) throw new CustomeError(404, 'Order not found');
 
     return bill;
