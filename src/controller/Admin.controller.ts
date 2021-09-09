@@ -25,19 +25,16 @@ export class AdminController {
   constructor() { }
 
 
-  /** 
-  @summary Register as an Admin
-  */
+  /**@summary Register as an Admin*/
   @Post('/RegisterAdmin')
   async saveAdmin(@Body() admin: SaveReqAdmin): Promise<SaveUpdateResAdmin> {
     const new_admin:IADMIN = await new MainAdmin().saveAdmin(<IADMIN>(admin));
-
     return <SaveUpdateResAdmin>(new_admin);
   }
 
 
 
-    /** 
+  /** 
   @summary Login as an Admin 
   */
   @Post("/adminlogin")
@@ -53,35 +50,27 @@ export class AdminController {
 
 
 
-  /** 
-  @summary Register new waiter => Only Login admin is allowed 
-  */
+  /**@summary Register new waiter => Only Login admin is allowed */
   @Security('api_key')
   @Post('/Registerwaiter')
   async saveWaiter(@Body() user: SaveReqWaiter): Promise<SaveUpdateResWaiter> {
     const new_user:IWAITER = await new MainWaiter().savewaiter(<IWAITER>(user));
-
     return <SaveUpdateResWaiter>(new_user);
   }
 
 
 
-    /** 
-  @summary Delete order by its ID => Only Login admin is allowed 
-  */
+  /**@summary Delete order by its ID => Only Login admin is allowed */
   @Security('api_key') 
   @Delete('/deleteorder')
   @SuccessResponse("200","product deleted")
   async deletorder(@Body() delreq: DeleteOrder): Promise<any> {
-
     return await new MainOrder().deletOrder(delreq.id);
   }
 
 
 
-    /** 
-  @summary Update order to ready => Only Login admin is allowed 
-  */
+  /**@summary Update order to ready => Only Login admin is allowed */
   @Security('api_key') 
   @Put('/updateOrderToReady')
   @SuccessResponse("200","product updated")
@@ -92,9 +81,7 @@ export class AdminController {
 
 
 
-    /** 
-  @summary Get list of all the orders => Only Login admin is allowed 
-  */
+  /**@summary Get list of all the orders => Only Login admin is allowed */
   @Security('api_key') 
   @Post('/getorderlist')
   async getorderList(): Promise<SaveUpdateResOrder[]> {
@@ -102,13 +89,11 @@ export class AdminController {
     if (admin === null) throw new CustomeError(404, 'Order not found');
 
     return <SaveUpdateResOrder[]>(admin);
-  }
-
-
-
-    /** 
-  @summary Get all the orders contain certain item => Only Login admin is allowed 
-  */
+  } 
+  
+  
+  
+  /**@summary Get all the orders contain certain item => Only Login admin is allowed */
   @Security('api_key') 
   @Post('/getorderbyItemID')
   async searchorderByproduct(@Body() getreq:SearchReqOrder): Promise<SaveUpdateResOrder[]> {
@@ -133,9 +118,7 @@ export class AdminController {
 
 
 
-  /** 
-  @summary Get Single Item By Item Id => Only Login Waiter is allowed 
-  */
+  /** @summary Get Single Item By Item Id => Only Login Waiter is allowed */
   @Security('api_key')
   @Post("/getOrderByStatus")
   async getorderByStatus(@Body() getreq:GetOrderByStatus): Promise<SaveUpdateResOrder[]> {
@@ -147,22 +130,17 @@ export class AdminController {
 
 
 
-  /** 
-  @summary Get Single Item By Item Id => Only Login Waiter is allowed 
-  */
+  /**@summary Get Single Item By Item Id => Only Login Waiter is allowed */
   @Security('api_key') 
   @Post('/saveItemInMenu')
   async saveItem(@Body() admin: SaveReqItem): Promise<SaveUpdateResItem> {
     const new_admin:IITEM = await new MainItem().saveItem(<IITEM>(admin));
-
     return <SaveUpdateResItem>(new_admin);
   }
 
 
 
-  /** 
-  @summary Get Single Item By Item Id => Only Login Waiter is allowed 
-  */
+  /** @summary Get Single Item By Item Id => Only Login Waiter is allowed */
   @Security('api_key') 
   @Put('/updateItemInMenu')
     async updateItem(@Body() admin: UpdateReqItem): Promise<SaveUpdateResItem> {
@@ -175,9 +153,7 @@ export class AdminController {
 
 
 
-      /** 
-  @summary Get Single Item By Item Id => Only Login Waiter is allowed 
-  */
+    /**@summary Get Single Item By Item Id => Only Login Waiter is allowed */
     @Security('api_key') 
     @Delete('/deleteItem')
     @SuccessResponse("200","product deleted")
@@ -185,4 +161,5 @@ export class AdminController {
 
       return await new MainItem().deletItem(delreq.id);
     }
+    
 }

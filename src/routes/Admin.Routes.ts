@@ -1,6 +1,18 @@
 import express from "express";
 import { AdminController } from "../controller/Admin.controller";
 import { IADMIN } from "../types/document/IADMIN";
+import { OrderController } from "../controller/Order.controller";
+import { SaveReqAdmin, GetAdmin } from "../types/Request/Admin.request";
+import { SaveUpdateResAdmin } from "../types/Response/Admin.responce";
+import { SaveUpdateResOrder } from "../types/Response/order.responce";
+import { SaveUpdateResWaiter } from "../types/Response/waiter.responce";
+import { SaveReqWaiter, GetWaiter } from "../types/Request/waiter.request";
+import { SaveUpdateResItem } from "../types/Response/Item.responce";
+import CustomeError from "../utills/error";
+const WaiterAuth = require("../middlewares/WaiterAuth");
+const AdminAuth = require("../middlewares/AdminAuth");
+const bcrypt = require("bcrypt");
+require("dotenv").config();
 import {
   GetOrderByStatus,
   DeleteOrder,
@@ -8,17 +20,7 @@ import {
   SaveReqOrder,
   UpdateReqOrder,
   SearchReqOrder,
- 
 } from "../types/Request/order.request";
-import { OrderController } from "../controller/Order.controller";
-import { SaveReqAdmin, GetAdmin } from "../types/Request/Admin.request";
-import { SaveUpdateResAdmin } from "../types/Response/Admin.responce";
-import { SaveUpdateResOrder } from "../types/Response/order.responce";
-import { SaveUpdateResWaiter } from "../types/Response/waiter.responce";
-import { SaveReqWaiter, GetWaiter } from "../types/Request/waiter.request";
-const WaiterAuth = require("../middlewares/WaiterAuth");
-const AdminAuth = require("../middlewares/AdminAuth");
-
 import {
   DeleteItem,
   GetItem,
@@ -27,16 +29,8 @@ import {
   search,
   getItemPrice,
 } from "../types/Request/Item.request";
-
-import { SaveUpdateResItem } from "../types/Response/Item.responce";
-
-const bcrypt = require("bcrypt");
-
-require("dotenv").config();
-
-import CustomeError from "../utills/error";
-
 const jwt = require("jsonwebtoken");
+
 
 export class AdminRoutes {
   router: express.Router;
@@ -44,6 +38,9 @@ export class AdminRoutes {
     this.router = express.Router();
     this.routes();
   }
+
+
+
   routes() {
     this.router.delete("/deleteorder", AdminAuth, async (req, res, next) => {
       try {
@@ -56,6 +53,9 @@ export class AdminRoutes {
         next(error);
       }
     });
+
+
+
 
     this.router.put(
       "/updateOrderToReady",
@@ -74,6 +74,9 @@ export class AdminRoutes {
         }
       }
     );
+
+
+
     this.router.post("/getorderlist", AdminAuth, async (req, res, next) => {
       try {
         const adminList: SaveUpdateResOrder[] =
@@ -85,6 +88,9 @@ export class AdminRoutes {
         next(error);
       }
     });
+
+
+
     this.router.post("/getorderbyItemID", AdminAuth, async (req, res, next) => {
       try {
         const order: SearchReqOrder = req.body;
@@ -97,6 +103,9 @@ export class AdminRoutes {
         next(error);
       }
     });
+
+
+
     this.router.post("/getOrderByStatus", AdminAuth, async (req, res, next) => {
       try {
         const getreq: GetOrderByStatus = req.body;
@@ -107,7 +116,9 @@ export class AdminRoutes {
         next(error);
       }
     });
- 
+
+
+
     this.router.post("/saveItemInMenu", AdminAuth, async (req, res, next) => {
       try {
         const admin: SaveReqItem = req.body;
@@ -120,6 +131,9 @@ export class AdminRoutes {
         next(error);
       }
     });
+
+
+
     this.router.put("/updateItemInMenu", AdminAuth, async (req, res, next) => {
       try {
         const admin: UpdateReqItem = req.body;
@@ -135,6 +149,9 @@ export class AdminRoutes {
         next(error);
       }
     });
+
+
+
     this.router.delete("/deleteItem", AdminAuth, async (req, res, next) => {
       try {
         const delreq: DeleteItem = req.body;
@@ -146,6 +163,9 @@ export class AdminRoutes {
         next(error);
       }
     });
+
+
+
     this.router.post("/RegisterAdmin", async (req, res, next) => {
       try {
         const admin: SaveReqAdmin = req.body;
@@ -160,6 +180,9 @@ export class AdminRoutes {
         next(error);
       }
     });
+
+
+
     this.router.post("/adminlogin", async (req, res, next) => {
       try {
         const getreq: GetAdmin = req.body;
@@ -178,6 +201,8 @@ export class AdminRoutes {
       }
     });
 
+
+
     this.router.post("/Registerwaiter", AdminAuth, async (req, res, next) => {
       try {
         const waiter: SaveReqWaiter = req.body;
@@ -195,7 +220,11 @@ export class AdminRoutes {
       } catch (error) {
         next(error);
       }
-    });
+    }
+    );
+
+
+
   }
 }
 export const AdminRoutesApi = new AdminRoutes().router;
