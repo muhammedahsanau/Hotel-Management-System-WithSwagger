@@ -126,10 +126,6 @@
 						},
 						"type": "array"
 					},
-					"waiter": {
-						"additionalProperties": false,
-						"type": "object"
-					},
 					"o_discription": {
 						"type": "string"
 					}
@@ -138,7 +134,6 @@
 					"customerName",
 					"tableNo",
 					"item",
-					"waiter",
 					"o_discription"
 				],
 				"type": "object",
@@ -579,7 +574,7 @@
 				}
 			}
 		},
-		"/waiter/saveorder": {
+		"/waiter/PlaceNewOrder": {
 			"post": {
 				"operationId": "Saveorder",
 				"responses": {

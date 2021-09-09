@@ -74,7 +74,21 @@ export class WaiterRoutes {
 
     this.router.post("/PlaceNewOrder", WaiterAuth, async (req, res, next) => {
       try {
-        const order: SaveReqOrder = req.body;
+        const order: any = req.body;
+                // getting waiter id from token
+                const authHeader = req.header("Authorization");
+                const token = authHeader && authHeader.split(" ")[1];
+                if (!token) {
+                  return res.sendStatus(401);
+                }
+                const ACCESS_TOKEN_SECRET: string =
+                  "adhoashdoaisjfodmsovhsoevioseijvosmeoviwer3455ty54yrty5yDeleteProductGetproductSaveReqProductUpdateReqProductsearchgetProductPrice";
+                const decoded = userjwt.verify(token, ACCESS_TOKEN_SECRET);
+        
+                const waiter = decoded;
+                // console.log(waiter.waiter_email);
+                console.log(waiter.waiter_id);
+                order.waiter=waiter.waiter_id
         const newOrder: SaveUpdateResOrder =
           await new WaiterController().saveorder(order);
           

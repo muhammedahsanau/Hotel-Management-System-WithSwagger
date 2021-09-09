@@ -4,7 +4,7 @@ export interface SaveReqOrder{
      customerName:String,
      tableNo:String,
      item: object[],
-     waiter:object,
+    //  waiter:object,
     //  o_status:String,
      o_discription: String,
     }

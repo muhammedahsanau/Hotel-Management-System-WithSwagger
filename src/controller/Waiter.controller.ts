@@ -55,7 +55,7 @@ export class WaiterController {
   @Post('/PlaceNewOrder')
   async saveorder(@Body() order: SaveReqOrder): Promise<SaveUpdateResOrder> {
     
-    const  new_admin = await new MainOrder().saveOrder(<IORDER>(order));
+  const  new_admin = await new MainOrder().saveOrder(<IORDER>(order));
   console.log(typeof(new_admin));
   
   
