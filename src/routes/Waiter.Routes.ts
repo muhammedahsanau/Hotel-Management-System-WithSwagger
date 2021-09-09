@@ -41,7 +41,7 @@ export class WaiterRoutes {
   }
   routes() {
 
-     
+    //route for waiter login
     this.router.post("/loginwaiter", async (req, res, next) => {
       try {
         const getreq: GetWaiter = req.body;
@@ -54,9 +54,6 @@ export class WaiterRoutes {
           ACCESS_TOKEN_SECRET
         );
         res.header("token", accessToken);
-
-        // console.log(waiter.waiter_password);
-
         res.send(waiter);
       } catch (error) {
         next(error);
@@ -74,10 +71,12 @@ export class WaiterRoutes {
       }
     });
 
+
+
+    //place new order for waiter 
     this.router.post("/PlaceNewOrder", WaiterAuth, async (req, res, next) => {
       try {
         const order: any = req.body;
-                // getting waiter id from token
                 const authHeader = req.header("Authorization");
                 const token = authHeader && authHeader.split(" ")[1];
                 if (!token) {
@@ -85,15 +84,11 @@ export class WaiterRoutes {
                 }
                 const ACCESS_TOKEN_SECRET: string =
                   "adhoashdoaisjfodmsovhsoevioseijvosmeoviwer3455ty54yrty5yDeleteProductGetproductSaveReqProductUpdateReqProductsearchgetProductPrice";
-                const decoded = userjwt.verify(token, ACCESS_TOKEN_SECRET);
-        
+                const decoded = userjwt.verify(token, ACCESS_TOKEN_SECRET);        
                 const waiter = decoded;
-                // console.log(waiter.waiter_email);
-                // console.log(waiter.waiter_id);
                 order.waiter=waiter.waiter_id
         const newOrder: SaveUpdateResOrder =
-          await new WaiterController().saveorder(order);
-          
+          await new WaiterController().saveorder(order);       
         res.status(200).json({
           Order: newOrder,
         });
@@ -102,6 +97,9 @@ export class WaiterRoutes {
       }
     });
 
+
+
+    
     this.router.post(
       "/GetBillByOrderId",
       WaiterAuth,
@@ -111,8 +109,6 @@ export class WaiterRoutes {
           const Order: number = await new WaiterController().getorderforBill(
             getreq
           );
-          // console.log(Order);
-
           res.json({
             Bill: Order,
           });
@@ -122,10 +118,8 @@ export class WaiterRoutes {
       }
     );
 
-    // const newOrder:SaveUpdateResOrder = await new WaiterController().GetBill(order);
-    // res.status(200).json({
-    //   message: newOrder
-    // });
+ 
+
 
     this.router.put("/updateorder", WaiterAuth, async (req, res, next) => {
       try {
@@ -142,6 +136,9 @@ export class WaiterRoutes {
         next(error);
       }
     });
+
+
+
 
     this.router.put(
       "/updateOrderToDelivered",
@@ -160,6 +157,9 @@ export class WaiterRoutes {
         }
       }
     );
+
+
+
 
     this.router.post("/getItemByID", WaiterAuth, async (req, res, next) => {
       try {
@@ -186,11 +186,13 @@ export class WaiterRoutes {
         next(error);
       }
     });
+
+
+
+
+
     this.router.post("/getMyOrderlist", WaiterAuth, async (req, res, next) => {
       try {
-        // const waiter: getwaiterID = req.body;
-
-        // getting waiter id from token
         const authHeader = req.header("Authorization");
         const token = authHeader && authHeader.split(" ")[1];
         if (!token) {
@@ -201,22 +203,14 @@ export class WaiterRoutes {
         const decoded = userjwt.verify(token, ACCESS_TOKEN_SECRET);
 
         const waiter = decoded;
-        // console.log(waiter.waiter_email);
-        // console.log(waiter.waiter_id);
-
         const orderList: SaveUpdateResOrder[] =
           await new WaiterController().getorderListByWaiterId();
         const new_order_list: SaveUpdateResOrder[] = [];
-
-        // console.log(waiter.waiter_id == orderList[6].waiter);
-        // console.log( orderList);
-
         for (let index = 0; index < orderList.length; index++) {
           if (waiter.waiter_id == orderList[index].waiter) {
             new_order_list.push(orderList[index]);
           }
         }
-
         res.status(200).json({
           result: new_order_list,
         });
@@ -240,6 +234,9 @@ export class WaiterRoutes {
         next(error);
       }
     });
+
+
+
   }
 }
 export const WaiterRoutesApi = new WaiterRoutes().router;
